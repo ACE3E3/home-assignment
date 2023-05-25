@@ -1,0 +1,177 @@
+[
+    {
+        "id": "1",
+        "name": "Tom",
+        "total_marks": "100",
+        "age": "18",
+        "subject": "Maths"
+    },
+    {
+        "id": "2",
+        "name": "John",
+        "total_marks": "95",
+        "age": "17",
+        "subject": "Maths"
+    },
+    {
+        "id": "3",
+        "name": "Emily",
+        "total_marks": "92",
+        "age": "16",
+        "subject": "Science"
+    },
+    {
+        "id": "4",
+        "name": "Sarah",
+        "total_marks": "98",
+        "age": "18",
+        "subject": "English"
+    },
+    {
+        "id": "5",
+        "name": "Michael",
+        "total_marks": "87",
+        "age": "17",
+        "subject": "Science"
+    },
+    {
+        "id": "6",
+        "name": "Emma",
+        "total_marks": "96",
+        "age": "16",
+        "subject": "Maths"
+    },
+    {
+        "id": "7",
+        "name": "Jacob",
+        "total_marks": "88",
+        "age": "17",
+        "subject": "English"
+    },
+    {
+        "id": "8",
+        "name": "Olivia",
+        "total_marks": "94",
+        "age": "16",
+        "subject": "Science"
+    },
+    {
+        "id": "9",
+        "name": "William",
+        "total_marks": "90",
+        "age": "18",
+        "subject": "Maths"
+    },
+    {
+        "id": "10",
+        "name": "Sophia",
+        "total_marks": "97",
+        "age": "17",
+        "subject": "English"
+    },
+    {
+        "id": "11",
+        "name": "Liam",
+        "total_marks": "93",
+        "age": "16",
+        "subject": "Maths"
+    },
+    {
+        "id": "12",
+        "name": "Ava",
+        "total_marks": "86",
+        "age": "18",
+        "subject": "Science"
+    },
+    {
+        "id": "13",
+        "name": "Ethan",
+        "total_marks": "91",
+        "age": "17",
+        "subject": "Maths"
+    },
+    {
+        "id": "14",
+        "name": "Mia",
+        "total_marks": "99",
+        "age": "16",
+        "subject": "English"
+    },
+    {
+        "id": "15",
+        "name": "Noah",
+        "total_marks": "85",
+        "age": "18",
+        "subject": "Science"
+    },
+    {
+        "id": "16",
+        "name": "Isabella",
+        "total_marks": "89",
+        "age": "17",
+        "subject": "Maths"
+    },
+    {
+        "id": "17",
+        "name": "James",
+        "total_marks": "95",
+        "age": "16",
+        "subject": "English"
+    },
+    {
+        "id": "18",
+        "name": "Charlotte",
+        "total_marks": "92",
+        "age": "18",
+        "subject": "Science"
+    },
+    {
+        "id": "19",
+        "name": "Benjamin",
+        "total_marks": "88",
+        "age": "17",
+        "subject": "Maths"
+    },
+    {
+        "id": "20",
+        "name": "Amelia",
+        "total_marks": "96",
+        "age": "16",
+        "subject": "English"
+    },
+    {
+        "id": "21",
+        "name": "Lucas",
+        "total_marks": "87",
+        "age": "18",
+        "subject": "Science"
+    },
+    {
+        "id": "22",
+        "name": "Harper",
+        "total_marks": "93",
+        "age": "17",
+        "subject": "Maths"
+    },
+    {
+        "id": "23",
+        "name": "Alexander",
+        "total_marks": "89",
+        "age": "16",
+        "subject": "English"
+    },
+    {
+        "id": "24",
+        "name": "Evelyn",
+        "total_marks": "94",
+        "age": "18",
+        "subject": "Science"
+    },
+    {
+        "id": "25",
+        "name": "Daniel",
+        "total_marks": "90",
+        "age": "17",
+        "subject": "Maths"
+    }
+]

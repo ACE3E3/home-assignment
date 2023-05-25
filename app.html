@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+    <button onclick="getAllStudents()">Get All Students</button>
+    <br/>
+    <br/>
+    <form class="form" id="subjectData"">
+        <label>Filter by Subject</label><br/>
+        <label for="html">Maths</label><input type="radio" id="sub" name="sub" value="Maths">
+        <label for="html">Science</label><input type="radio" id="sub" name="sub" value="Science">
+        <label for="html">English</label><input type="radio" id="sub" name="sub" value="English">
+        <br/>
+        <button type="submit" onclick="getSubjectData()">Get Data</button>
+    </form>
+    <form class="form" id="ageData">
+        <br/>
+        <br/>
+            <label>Filter by Age</label><br/>
+            <label for="html">16</label><input type="radio" id="stuAge" name="age" value="16">
+            <label for="html">17</label><input type="radio" id="stuAge" name="age" value="17">
+            <label for="html">18</label><input type="radio" id="stuAge" name="age" value="18">
+            <br/>
+            <button type="submit" onclick="getAgeData()">Get Data</button>
+    </form>
+
+    <form class="form" id="highest">
+        <br/>
+        <br/>
+            <label>Highest Marks in Subject</label><br/>
+            <label for="html">Maths</label><input type="radio" id="sub" name="sub" value="Maths">
+            <label for="html">Science</label><input type="radio" id="sub" name="sub" value="Science">
+            <label for="html">English</label><input type="radio" id="sub" name="sub" value="English">
+            <br/>
+            <button type="submit" onclick="getHighestData()">Get Data</button>
+    </form>
+
+    <table class="flat-table">
+        <tbody>
+          <tr id="id">
+            <th>ID</th>
+          </tr>
+          <tr id="name">
+            <th>Name</th>
+          </tr>
+          <tr id="studentAge">
+            <th>Age</th>
+          </tr>
+          <tr id="subject">
+            <th>Subject</th>
+          </tr>
+          <tr id="marks">
+            <th>Total Marks</th>
+          </tr>
+        </tbody>
+          </table>
+
+          <script>
+            var isExists = 0;
+            function getAllStudents(){
+            console.log("")
+            if(isExists == 1){
+                location.reload();
+            }
+            fetch('http://localhost:9000/api/student/student_details')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                studentData = data.data
+                isExists = 1;
+                studentData.forEach(student => {
+                    const markup = `<td>${student.id}</td>`;
+                    const markup2 = `<td>${student.name}</td>`;
+                    const markup3 = `<td>${student.age}</td>`;
+                    const markup4 = `<td>${student.total_marks}</td>`;
+                    const markup5 = `<td>${student.subject}</td>`;
+
+                    document.querySelector("#id").insertAdjacentHTML('beforeend', markup);
+                    document.querySelector("#name").insertAdjacentHTML('beforeend', markup2);
+                    document.querySelector("#studentAge").insertAdjacentHTML('beforeend', markup3);
+                    document.querySelector("#subject").insertAdjacentHTML('beforeend', markup4);
+                    document.querySelector("#marks").insertAdjacentHTML('beforeend', markup5);
+                })
+            })
+            .catch(error => console.log(error));
+            }
+
+            function getSubjectData(){
+                if(isExists == 1){
+                    location.reload();
+                }
+                const formEl = document.querySelector('#subjectData');
+
+                formEl.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    const formData = new FormData(formEl);
+                    const data = Object.fromEntries(formData);
+
+                    fetch('http://localhost:9000/api/student/sub-results', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }).then(res => {
+                        return res.json();
+                    }).then(data => {
+                        isExists = 1;
+                        data = data.data
+                        data.forEach(student => {
+                            const markup = `<td>${student.id}</td>`;
+                            const markup2 = `<td>${student.name}</td>`;
+                            const markup3 = `<td>${student.age}</td>`;
+                            const markup4 = `<td>${student.total_marks}</td>`;
+                            const markup5 = `<td>${student.subject}</td>`;
+
+                            document.querySelector("#id").insertAdjacentHTML('beforeend', markup);
+                            document.querySelector("#name").insertAdjacentHTML('beforeend', markup2);
+                            document.querySelector("#studentAge").insertAdjacentHTML('beforeend', markup3);
+                            document.querySelector("#subject").insertAdjacentHTML('beforeend', markup4);
+                            document.querySelector("#marks").insertAdjacentHTML('beforeend', markup5);
+                        })
+                    });
+                })
+            }
+            
+            function getAgeData(){
+                if(isExists == 1){
+                    location.reload();
+                }
+                const formEl = document.querySelector('#ageData');
+
+                formEl.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    const formData = new FormData(formEl);
+                    const data = Object.fromEntries(formData);
+
+                    console.log(data);
+
+                    fetch('http://localhost:9000/api/student/filter-age-students', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }).then(res => {
+                        return res.json();
+                    }).then(data => {
+                        data = data.data
+                        isExists = 1;
+                        data.forEach(student => {
+                            const markup = `<td>${student.id}</td>`;
+                            const markup2 = `<td>${student.name}</td>`;
+                            const markup3 = `<td>${student.age}</td>`;
+                            const markup4 = `<td>${student.total_marks}</td>`;
+                            const markup5 = `<td>${student.subject}</td>`;
+
+                            document.querySelector("#id").insertAdjacentHTML('beforeend', markup);
+                            document.querySelector("#name").insertAdjacentHTML('beforeend', markup2);
+                            document.querySelector("#studentAge").insertAdjacentHTML('beforeend', markup3);
+                            document.querySelector("#subject").insertAdjacentHTML('beforeend', markup4);
+                            document.querySelector("#marks").insertAdjacentHTML('beforeend', markup5);
+                        })
+                    });
+                })
+            }
+
+            function getHighestData(){
+                const formEl = document.querySelector('#highest');
+
+                formEl.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    const formData = new FormData(formEl);
+                    const data = Object.fromEntries(formData);
+
+                    fetch('http://localhost:9000/api/student/highest-in-sub', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    }).then(res => {
+                        return res.json();
+                    }).then(data => {
+                        data = data.data;
+                        console.log(data);
+                        const markup = `<td>${data.id}</td>`;
+                        const markup2 = `<td>${data.name}</td>`;
+                        const markup3 = `<td>${data.age}</td>`;
+                        const markup4 = `<td>${data.total_marks}</td>`;
+                        const markup5 = `<td>${data.subject}</td>`;
+
+                        document.querySelector("#id").insertAdjacentHTML('beforeend', markup);
+                        document.querySelector("#name").insertAdjacentHTML('beforeend', markup2);
+                        document.querySelector("#studentAge").insertAdjacentHTML('beforeend', markup3);
+                        document.querySelector("#subject").insertAdjacentHTML('beforeend', markup4);
+                        document.querySelector("#marks").insertAdjacentHTML('beforeend', markup5);
+                    });
+                })
+            }
+          </script>
+</body>
+</html>
